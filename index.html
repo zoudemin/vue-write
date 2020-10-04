@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script type="module">
+    import { render, effect, reactive } from './src/index.js'
+    const state = reactive({
+      count: 0,
+      name: '邹德敏'
+    })
+
+
+    const oldVnode = {
+      tag: 'ul',
+      props: {},
+      children: [
+          {
+            tag: 'li',
+            props: { id: 'li1', style: { color: 'red', background: '#000' },key: 'li1' },
+            children: 'li1'
+          },
+          {
+            tag: 'li',
+            props: { id: 'li2', style: { color: 'red', background: '#666' },key: 'li2' },
+            children: 'li2'
+          },
+          {
+            tag: 'li',
+            props: { id: 'li3', style: { color: 'red', background: 'white' },key: 'li3' },
+            children: 'li3'
+          },
+          {
+            tag: 'li',
+            props: { id: 'li4', style: { color: 'red', background: 'blue' },key: 'li4' },
+            children: 'li4'
+          }
+        ]//注意不要用innerHTML   要用设置文本
+    }
+    render(oldVnode, app);
+    setTimeout(() => {
+      const newVnode = {
+        tag: 'ul',
+        props: { id: 'zdm', style: { color: 'red', background: 'yellow' }},
+        children: [
+          {
+            tag: 'li',
+            props: { id: 'li5', style: { color: 'red', background: 'red' },key: 'li5' },
+            children: 'li5'
+          },
+          {
+            tag: 'li',
+            props: { id: 'li4', style: { color: 'red', background: 'blue' },key: 'li4' },
+            children: 'li4'
+          },
+          {
+            tag: 'li',
+            props: { id: 'li1', style: { color: 'red', background: '#000' },key: 'li1' },
+            children: 'li1'
+          },
+          {
+            tag: 'li',
+            props: { id: 'li2', style: { color: 'red', background: '#666' },key: 'li2' },
+            children: 'li2'
+          },
+          {
+            tag: 'li',
+            props: { id: 'li3', style: { color: 'red', background: 'white' },key: 'li3' },
+            children: 'li3'
+          }
+        ]
+      };
+      render(newVnode, app);
+    }, 2000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const oldVnode = {
+    //   tag: 'ul',
+    //   props: {},
+    //   children: [
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li1', style: { color: 'red', background: '#000' },key: 'li1' },
+    //         children: 'li1'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li2', style: { color: 'red', background: '#666' },key: 'li2' },
+    //         children: 'li2'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li3', style: { color: 'red', background: 'white' },key: 'li3' },
+    //         children: 'li3'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li4', style: { color: 'red', background: 'blue' },key: 'li4' },
+    //         children: 'li4'
+    //       }
+    //     ]//注意不要用innerHTML   要用设置文本
+    // }
+    // render(oldVnode, app);
+    // setTimeout(() => {
+    //   const newVnode = {
+    //     tag: 'ul',
+    //     props: { id: 'zdm', style: { color: 'red', background: 'yellow' }},
+    //     children: [
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li3', style: { color: 'red', background: '#acdf68' },key: 'li3' },
+    //         children: 'li3'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li4', style: { color: 'red', background: 'blue' },key: 'li4' },
+    //         children: 'li4'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li1', style: { color: 'red', background: '#000' },key: 'li1' },
+    //         children: 'li1'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li5', style: { color: 'red', background: '#bbad89' },key: 'li5' },
+    //         children: 'li5'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li2', style: { color: 'red', background: '#666' },key: 'li2' },
+    //         children: 'li2'
+    //       }
+    //     ]
+    //   };
+    //   render(newVnode, app);
+    // }, 2000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const oldVnode = {
+    //   tag: 'ul',
+    //   props: {},
+    //   children: [
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li1', style: { color: 'red', background: '#000' },key: 'li1' },
+    //         children: 'li1'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li2', style: { color: 'red', background: '#666' },key: 'li2' },
+    //         children: 'li2'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li3', style: { color: 'red', background: 'white' },key: 'li3' },
+    //         children: 'li3'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li4', style: { color: 'red', background: 'blue' },key: 'li4' },
+    //         children: 'li4'
+    //       }
+    //     ]//注意不要用innerHTML   要用设置文本
+    // }
+    // render(oldVnode, app);
+    // setTimeout(() => {
+    //   const newVnode = {
+    //     tag: 'ul',
+    //     props: { id: 'zdm', style: { color: 'red', background: 'yellow' }},
+    //     children: [
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li1', style: { color: 'red', background: '#acdf68' },key: 'li1' },
+    //         children: 'li1'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li2', style: { color: 'red', background: '#666' },key: 'li2' },
+    //         children: 'li2'
+    //       },
+    //     ]
+    //   };
+    //   render(newVnode, app);
+    // }, 2000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const oldVnode = {
+    //   tag: 'ul',
+    //   props: {},
+    //   children: 'xxx'//注意不要用innerHTML   要用设置文本
+    // }
+    // render(oldVnode, app);
+    // setTimeout(() => {
+    //   const newVnode = {
+    //     tag: 'ul',
+    //     props: { id: 'zdm', style: { color: 'red', background: 'yellow' } },
+    //     children: [
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li1', style: { color: 'red', background: '#000' } },
+    //         children: 'li1'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li2', style: { color: 'red', background: '#666' } },
+    //         children: 'li2'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li3', style: { color: 'red', background: 'white' } },
+    //         children: 'li3'
+    //       },
+    //       {
+    //         tag: 'li',
+    //         props: { id: 'li4', style: { color: 'red', background: 'blue' } },
+    //         children: 'li4'
+    //       }
+    //     ]
+    //   };
+    //   render(newVnode, app);
+    // }, 2000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // const oldVnode = {
+    //   tag: 'ul',
+    //   props: {id:'zdm', style: { color: 'red',background:'yellow' } },
+    //   children: [
+    //     {
+    //       tag:'li',
+    //       props:{id:'li1', style: { color: 'red',background:'#000' } },
+    //       children:'li1'
+    //     },
+    //     {
+    //       tag:'li',
+    //       props:{id:'li2', style: { color: 'red',background:'#666' } },
+    //       children:'li2'
+    //     },
+    //     {
+    //       tag:'li',
+    //       props:{id:'li3', style: { color: 'red',background:'white' } },
+    //       children:'li3'
+    //     },
+    //     {
+    //       tag:'li',
+    //       props:{id:'li4', style: { color: 'red',background:'blue' } },
+    //       children:'li4'
+    //     }
+    //   ]
+    // };
+    // render(oldVnode,app);
+    // setTimeout(()=>{
+    //   const newVnode = {
+    //     tag: 'ul',
+    //     props: {},
+    //     children: 'xxx'//注意不要用innerHTML   要用设置文本
+    //   }
+    //   render(newVnode,app);
+    // },2000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //diff 思想   两棵树   先对比属性 *************************change******************************
+    // const oldVnode = {
+    //   tag: 'div',
+    //   props: {id:'zdm', style: { color: 'red',background:'yellow' } },
+    //   children: "邹德敏"
+    // };
+    // render(oldVnode,app);
+    // setTimeout(() => {
+    //   const oldVnode = {
+    //     tag: 'div',
+    //     props: { style: { color: 'blue' } },
+    //     children: "邹德敏"
+    //   };
+    //   render(oldVnode,app);
+    // }, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /********************************************非diff******************************************************/
+    // const MyComponent = {
+    //   setup(prop, context) {//如果没有返回函数 会用template=》render再把render函数挂载到setup的返回值上
+    //     return () => {
+    //       return {
+    //         tag: 'div',
+    //         props: { style: { color: 'pink' } },
+    //         children: [
+    //           {
+    //             tag: 'p'
+    //             , props: null, children: '我是一个自定义组件' + state.count+state.name
+    //           }, {
+    //             tag: 'button'
+    //             , props: {
+    //               onClick: () => {state.count++;state.name="zdm"}
+    //             }, children: 'click'
+    //           }
+    //         ]
+    //       }
+    //     }
+    //   }
+    // }
+    // const vnode = {
+    //   tag: 'div',
+    //   props: { style: { border: '3px solid #00ff00' } },
+    //   children: [
+    //     {
+    //       tag: 'p',
+    //       props: { style: { color: 'blue' } },
+    //       children: "vue-3-计数" + state.count
+    //     }, {
+    //       tag: 'button',
+    //       props: {
+    //         onClick: () => alert(state.count)
+    //       },
+    //       children: 'click'
+    //     }, {
+    //       tag: MyComponent,
+    //       props: null,
+    //       children: ''//组件的插槽
+    //     }
+    //   ]
+    // }
+    // effect(()=>{
+    //   const vnode = {
+    //     tag: 'div',
+    //     props: { style: { border: '3px solid #00ff00' } },
+    //     children: [
+    //       {
+    //         tag: 'p',
+    //         props: { style: { color: 'blue' } },
+    //         children: "vue-3-计数" + state.count
+    //       }, {
+    //         tag: 'button',
+    //         props: {
+    //           onClick: () => alert(state.count)
+    //         },
+    //         children: 'click'
+    //       }, {
+    //         tag: MyComponent,
+    //         props: null,
+    //         children: ''//组件的插槽
+    //       }
+    //     ]
+    //   }
+    //   render(vnode, app)
+    // })
+  </script>
+</body>
+
+</html>
